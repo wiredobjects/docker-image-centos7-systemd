@@ -1,9 +1,8 @@
 # https://hub.docker.com/_/centos/
 
-FROM centos:7
+FROM wiredobjects/centos7
 MAINTAINER "refnode" <refnode@gmail.com>
 ENV container docker
-RUN yum -y update
 RUN (cd /lib/systemd/system/sysinit.target.wants/; \
 for i in *; do [ $i == systemd-tmpfiles-setup.service ] || rm -f $i; done); \
 rm -f /lib/systemd/system/multi-user.target.wants/*;\
